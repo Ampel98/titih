@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视频详情 | 黄婷婷</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== 详情页专用样式 ===== */
+.detail-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 150px 20px 80px;
+}
+
+/* 顶部：海报 + 基础信息 */
+.hero {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+.hero .poster {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+.hero .poster img { width: 100%; height: 100%; object-fit: cover; }
+.hero .info h1 {
+  font-size: 2.4rem;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.hero .info .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #b0b0b0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.hero .info .meta .row { display: flex; gap: 10px; }
+.hero .info .meta .row .k { flex: 0 0 80px; color: #888; }
+.hero .info .meta strong { color: #fff; font-weight: 500; }
+
+/* ===== 板块（原 tab 改成平铺） ===== */
+.section-block { margin-bottom: 50px; }
+.section-title {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 简介文字 */
+.synopsis {
+  font-size: 16px;
+  color: #d0d0d0;
+  line-height: 2;
+  letter-spacing: 0.5px;
+  white-space: pre-line;
+}
+
+/* 视频列表 */
+.video-list { display: flex; flex-direction: column; gap: 24px; }
+.video-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 20px;
+}
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.video-label {
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.video-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.video-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: #ddd;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.video-actions a:hover {
+  background: #e8d3a0;
+  color: #2b2b2b;
+  border-color: #e8d3a0;
+}
+.video-actions a svg { width: 14px; height: 14px; }
+.video-frame {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.video-frame iframe { width: 100%; height: 100%; border: none; }
+
+/* 剧照网格 */
+.stills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.stills-grid a {
+  display: block;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+.stills-grid a:hover { transform: translateY(-5px); }
+.stills-grid a img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 下载区 */
+.download-list { display: flex; flex-direction: column; gap: 10px; }
+.download-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  font-size: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.download-item .dl-label { color: #ddd; }
+.download-item .dl-code { color: #b9a06a; font-family: monospace; }
+.download-item a {
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.download-item a:hover { background: #e8d3a0; color: #2b2b2b; }
+
+/* 返回按钮 */
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #a0a0a0;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.back-link:hover { color: #fff; }
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; gap: 24px; }
+  .hero .poster { max-width: 260px; margin: 0 auto; }
+  .hero .info h1 { font-size: 1.6rem; text-align: center; }
+  .section-title { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html"   class="nav-link">Home</a></li>
+      <li><a href="profile.html"     class="nav-link">Profile</a></li>
+      <li><a href="video.html"   class="nav-link active">Video</a></li>
+      <li><a href="music.html"   class="nav-link">Music</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <!-- 右上角搜索框 -->
+  <form class="nav-search" action="search.html" method="get">
+    <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+    </svg>
+    <input type="text" name="q" placeholder="搜索" autocomplete="off">
+  </form>
+</header>
+</header>
+
+<main class="detail-wrap">
+  <a href="video.html" class="back-link" id="back-link">← 返回列表</a>
+  <div id="detail-body"></div>
+</main>
+
+<script src="data.js"></script>
+<script src="detail.js"></script>
+</body>
+</html>

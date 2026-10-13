@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄婷婷 | Gallery</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html"   class="nav-link">Home</a></li>
+      <li><a href="profile.html" class="nav-link">Profile</a></li>
+      <li><a href="video.html"   class="nav-link">Video</a></li>
+      <li><a href="music.html"   class="nav-link">Music</a></li>
+      <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <!-- 右上角搜索框 -->
+  <form class="nav-search" action="search.html" method="get">
+    <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+    </svg>
+    <input type="text" name="q" placeholder="搜索" autocomplete="off">
+  </form>
+</header>
+</header>
+
+<main class="page-content">
+  <div class="video-tabs">
+    <button class="tab-btn active" data-subtarget="gallery-photo">生写</button>
+    <button class="tab-btn" data-subtarget="gallery-magazine">杂志</button>
+    <button class="tab-btn" data-subtarget="gallery-card">小卡</button>
+  </div>
+
+  <div class="video-content-wrapper">
+    <div id="gallery-photo" class="video-sub-page active">
+      <div id="gallery-photo-list"></div>
+      <div id="gallery-photo-detail" class="detail-view">
+        <div class="back-to-list">← 返回生写列表</div>
+        <div class="gallery-detail-content"></div>
+      </div>
+    </div>
+
+    <div id="gallery-magazine" class="video-sub-page">
+      <div id="gallery-magazine-list"></div>
+      <div id="gallery-magazine-detail" class="detail-view">
+        <div class="back-to-list">← 返回杂志列表</div>
+        <div class="gallery-detail-content"></div>
+      </div>
+    </div>
+
+    <div id="gallery-card" class="video-sub-page">
+      <div id="gallery-card-list"></div>
+      <div id="gallery-card-detail" class="detail-view">
+        <div class="back-to-list">← 返回小卡列表</div>
+        <div class="gallery-detail-content"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜索 | 黄婷婷</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.search-wrap { max-width: 1000px; margin: 0 auto; padding: 150px 20px 80px; }
+.search-result-title { color: #b9a06a; font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; }
+.search-empty { color: #888; text-align: center; padding: 60px 0; font-size: 15px; }
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+.search-card { display: block; transition: transform 0.3s ease; }
+.search-card:hover { transform: translateY(-5px); }
+.search-card .poster {
+  width: 100%; aspect-ratio: 4/5; overflow: hidden;
+  border-radius: 8px; box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+  margin-bottom: 10px; background: #1e1e1e;
+}
+.search-card .poster img { width: 100%; height: 100%; object-fit: cover; }
+.search-card .name { color: #e0e0e0; font-size: 14px; text-align: center; letter-spacing: 1px; }
+.search-card .type { color: #888; font-size: 12px; text-align: center; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html"   class="nav-link">Home</a></li>
+      <li><a href="profile.html" class="nav-link">Profile</a></li>
+      <li><a href="video.html"   class="nav-link">Video</a></li>
+      <li><a href="music.html"   class="nav-link">Music</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <form class="nav-search" action="search.html" method="get">
+    <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+    </svg>
+    <input type="text" name="q" placeholder="搜索" autocomplete="off">
+  </form>
+</header>
+
+<main class="search-wrap">
+  <div id="searchResults"></div>
+</main>
+
+<script src="data.js"></script>
+<script src="search.js"></script>
+</body>
+</html>

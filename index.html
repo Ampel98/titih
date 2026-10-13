@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄婷婷 | Home</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.loli.net">
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html"   class="nav-link active">Home</a></li>
+      <li><a href="profile.html"     class="nav-link">Profile</a></li>
+      <li><a href="video.html"   class="nav-link">Video</a></li>
+      <li><a href="music.html"   class="nav-link">Music</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <!-- 右上角搜索框 -->
+  <form class="nav-search" action="search.html" method="get">
+    <svg class="nav-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+    </svg>
+    <input type="text" name="q" placeholder="搜索" autocomplete="off">
+  </form>
+</header>
+</header>
+
+<main style="flex:1;">
+  <div class="home-hero" id="homeHero">
+    <div class="hero-slide active" style="background-image:url('https://cloudflare-imgbed-94l.pages.dev/file/website/1791784986129_bg_1.jpg'); background-position: 70% 25%;"></div>
+    <div class="hero-slide"        style="background-image:url('https://cloudflare-imgbed-94l.pages.dev/file/website/1791784990206_bg_2.jpg');"></div>
+    <div class="hero-slide"        style="background-image:url('https://cloudflare-imgbed-94l.pages.dev/file/website/1791784996786_bg_3.jpg');"></div>
+    <div class="hero-slide"        style="background-image:url('https://cloudflare-imgbed-94l.pages.dev/file/website/1791785002701_bg_4.jpg'); background-position: 65% 25%;"></div>
+
+    <div class="hero-caption">
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+  </div>
+</main>
+
+<script>
+(function() {
+  const slides = document.querySelectorAll('.home-hero .hero-slide');
+  const dotsBox = document.getElementById('heroDots');
+  if (!slides.length) return;
+  let current = 0;
+  const INTERVAL = 5000;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+    dotsBox.appendChild(dot);
+  });
+  const dots = dotsBox.querySelectorAll('span');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  let timer = setInterval(() => goTo((current + 1) % slides.length), INTERVAL);
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo((current + 1) % slides.length), INTERVAL);
+  }
+})();
+</script>
+
+</body>
+</html>
