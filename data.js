@@ -27,7 +27,7 @@ const bioData = {
     { name: '黄婷婷', url: 'https://weibo.com/u/7735668873', icon: 'https://www.sinaimg.cn/blog/developer/wiki/LOGO_64x64.png' },
     { name: '黄婷婷', url: 'https://xhslink.cn/o/4J9FrODsoNu', icon: 'https://www.xiaohongshu.com/favicon.ico' },
     { name: '黄婷婷', url: 'https://v.douyin.com/jy6nj6nML6Y/', icon: 'https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/2025_0313_logo.png' },
-    { name: '黄婷婷TiTi', url: 'https://space.bilibili.com/1727095428', icon: 'https://i0.hdslb.com/bfs/static/jinkela/long/images/favicon.ico' },
+    { name: '黄婷婷TiTi', url: 'https://space.bilibili.com/1727095428', icon: 'https://cloudflare-imgbed-94l.pages.dev/file/icon/1791892341897_bili_icon.png' },
     { name: 'kotetehtt', url: 'https://www.instagram.com/kotetehtt', icon: 'https://cloudflare-imgbed-94l.pages.dev/file/icon/1791784893528_Ins_icon.png' },
     { name: '黄婷婷', url: 'https://x.com/kotete920908', icon: 'https://cloudflare-imgbed-94l.pages.dev/file/icon/1791784893568_X_icon.png' }
   ],
