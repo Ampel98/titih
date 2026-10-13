@@ -1,10 +1,10 @@
 /* ================= 基础 ================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: 'Microsoft YaHei', 'Noto Serif SC', serif;
+  font-family: 'Microsoft YaHei', 'Noto Sans SC', serif;
   background-color: #2b2b2b;
   color: #e0e0e0;
-  font-family: 'Microsoft YaHei', 'Noto Serif SC', serif;
+  font-family: 'Microsoft YaHei', 'Noto Sans SC', serif;
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
