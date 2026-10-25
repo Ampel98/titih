@@ -46,6 +46,7 @@ const filmData = {
         year: '2026', director: '郑世龙', cast: '魏哲鸣 / 刘些宁 / 费启鸣 / 赵晴 / 黄婷婷等',
         synopsis: '改编自晋江文学城小说《降落我心上》原著：翘摇\n2026.08.31 湖南卫视播出，芒果TV、咪咕视频上线播出\n出场集数：15、16、17',
         fullVideo: [{ label: '芒果TV - 全集', type: 'link', url: 'https://www.mgtv.com/b/778406/24623021.html' },
+          { label: 'YouTube - 单人CUT', type: 'iframe', embed: 'https://www.youtube.com/embed/o1NwsFsIkDg?autoplay=0&rel=0',  url: 'https://www.youtube.com/watch?v=o1NwsFsIkDg' },
           { label: '咪咕视频 - 全集', type: 'link', url: 'https://www.miguvideo.com/p/detail/966740877' },
           { label: '爱奇艺国际 - 全集', type: 'link', url: 'https://www.iq.com/album/%E9%A3%9E%E5%88%B0%E6%88%91%E5%BF%83%E4%B8%8A-2026-1hg9a70yi45' },
           { label: 'Viki - 全集', type: 'link', url: 'https://www.viki.com/tv/41640c-blossom-through-the-cloud' },
